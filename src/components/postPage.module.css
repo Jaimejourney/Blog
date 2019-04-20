@@ -1,0 +1,17 @@
+.mainwrapping{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainwrapping input{
+    display: block;
+    width: 20%;
+    margin-bottom: 50px;
+    margin-top:10px;
+}
+
+.mainwrapping textarea{
+    display: block;
+    width:50%;
+    height: 225px;
+}

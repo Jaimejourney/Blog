@@ -1,0 +1,26 @@
+.header{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title{
+    color: #e74c3c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+p > a{
+    color: #3498DB;
+    text-decoration: none;
+    font-size: 90%;
+    margin-right:2%;
+}

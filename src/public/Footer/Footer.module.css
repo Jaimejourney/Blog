@@ -1,0 +1,12 @@
+a{
+    color: #3498DB;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.Footer{
+    margin: 0;
+    margin-top:5%;
+    padding: 0;
+    box-sizing: border-box;
+}
