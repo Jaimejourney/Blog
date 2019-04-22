@@ -3,8 +3,8 @@ import classes from './BlogPage.module.css'
 import {Link} from 'react-router-dom';
 import Footer from './../public/Footer/Footer';
 import {connect} from "react-redux";
-import { fetchProducts } from "./../store/actions";
-
+import {fetchProducts} from "./../store/actions";
+import { numberPerPage } from './../public/Const/Const';
 
 class MainMenu extends Component {
     componentDidMount() {
@@ -15,9 +15,8 @@ class MainMenu extends Component {
 
     render() {
         const {error, loading, products} = this.props;
-        let Datatmp = Object
-            .values(products)
-            .slice(0, 8);
+        let tmp = Object.values(products);
+        let Datatmp = tmp.slice(tmp.length-8, tmp.length).reverse();
         return (
             <div>
                 <ul className={classes.posts}>
@@ -43,6 +42,5 @@ class MainMenu extends Component {
 const mapStateToProps = state => {
     return {products: state.items, loading: state.loading, error: state.error};
 };
-
 
 export default connect(mapStateToProps)(MainMenu);

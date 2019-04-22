@@ -11,9 +11,9 @@ class blogList extends Component {
                 {// this iterates through the articles JSON and calls your ArticleListItem
                 // component for each article
                 Object
-                    .values(products)
+                    .values(products).reverse()
                     .map(data => {
-                        return <li>
+                        return <li key = {data.title}>
                             <span>&gt;&nbsp;{data.date}</span>
                             <Link to={`/blogList/${data.slug}`}>
                             {data.title}</Link>

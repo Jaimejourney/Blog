@@ -3,7 +3,7 @@ import classes from './Header.module.css';
 import {Link} from 'react-router-dom';
 
 const Header = () => (
-    <div>
+    <div className = {classes.wrapping}>
         <div className={classes.header}>
             <h1 className={classes.title}>博客</h1>
         </div>

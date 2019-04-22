@@ -3,6 +3,7 @@ import classes from './BlogPage.module.css'
 import {Link} from 'react-router-dom';
 import PageFooter from './../public/Footer/PageFooter';
 import {connect} from "react-redux";
+import { numberPerPage } from './../public/Const/Const';
 
 class BlogPage extends Component {
     constructor(props) {
@@ -18,13 +19,14 @@ class BlogPage extends Component {
 
     render() {
         const {error, loading, products} = this.props;
-        let Datatmp = Object
-            .values(products)
-            .slice(this.state.pagenumber * 8, this.state.pagenumber * 8 + 8);
+        let tmp = Object.values(products);
+        let Datatmp = tmp
+            .slice(tmp.length - this.state.pagenumber * 8 - 8 < 0 ? 0 : tmp.length - this.state.pagenumber * 8 - 8 , tmp.length - this.state.pagenumber * 8).reverse();
         let last = false;
         if (Object.values(Datatmp).length < 8) {
             last = true;
         }
+       
         return (
             <div>
                 <ul className={classes.posts}>

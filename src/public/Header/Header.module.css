@@ -10,7 +10,7 @@
     text-decoration: none;
 }
 
-p{
+.wrapping p{
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -18,7 +18,7 @@ p{
     margin-inline-end: 0px;
 }
 
-p > a{
+.wrapping p > a{
     color: #3498DB;
     text-decoration: none;
     font-size: 90%;

@@ -3,11 +3,13 @@ import classes from './Article.module.css';
 import {connect} from "react-redux";
 
 class Article extends Component {
+
+
     render() {
         const {error, loading, products} = this.props;
         return (
             <div>
-                <h3>{products[this.props.name].title}</h3>
+                <h1>{products[this.props.name].title}</h1>
                 <div
                     className={classes.postContent}
                     dangerouslySetInnerHTML={{

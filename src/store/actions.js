@@ -20,7 +20,6 @@ export function fetchProducts() {
             .then(res => res.json())
             .then(json => {
                 dispatch(fetchDataSuccess(json));
-                return json;
             })
             .catch(error => dispatch(fetchDataFailure(error)));
     };
