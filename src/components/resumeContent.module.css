@@ -2,3 +2,20 @@
     display: block;
     margin-top: 8%;
 }
+
+.resume > ul >li{
+    color:#747474;
+    margin-top:1.5%;
+}
+
+.resume > ul{
+    margin-left: -2%;
+}
+
+.redText{
+    margin: 24px 0 0.8em 0.5em;
+    line-height: 1em !important;
+    font-family: 'Comic Sans MS';
+    color: #990000;
+    font-size: 2.5em;
+}

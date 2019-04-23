@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import classes from './contact.module.css';
 import firebase from './firebase';
+import {Redirect} from "react-router-dom";
 
 class contact extends Component {
     constructor() {
@@ -8,7 +9,8 @@ class contact extends Component {
         this.state = {
             nameText: "",
             emailText: "",
-            textareaText: ""
+            textareaText: "",
+            submittedSuccessfully:false
         };
         this.postHandler = this
             .postHandler
@@ -40,18 +42,21 @@ class contact extends Component {
     postHandler(event) {
         event.preventDefault()
         firebase
-        .database()
-        .ref('contact/' + new Date())
-        .set({name: this.state.nameText, email: this.state.emailText, message:this.state.textareaText})
-        .then(console.log("success"));
+            .database()
+            .ref('contact/' + new Date())
+            .set({name: this.state.nameText, email: this.state.emailText, message: this.state.textareaText})
+            .then(console.log("success"))
+        alert("Submit Success")
+        this.setState({submittedSuccessfully:true})
     }
 
     render() {
-        return (
-            <div>
+        return this.state.submittedSuccessfully
+            ? (<Redirect to="/"/ >)
+            : <div>
                 <div>
                     <h2>Get in Touch</h2>
-                    <h4>Please fill out the quick form and we will be in touch with lightning speed</h4>
+                    <h4>Please fill out the quick form and I will be in touch with lightning speed</h4>
                 </div>
                 <div className={classes.contactForm}>
                     <form onSubmit={this.postHandler}>
@@ -59,31 +64,30 @@ class contact extends Component {
                             type='text'
                             className={classes.formfield}
                             required
-                            placeholder='Name'
+                            placeholder='Name*'
                             onChange=
                             {(e) => this.nameChangeHandler(e)}/>
                         <input
                             type='text'
                             className={classes.formfield}
                             required
-                            placeholder='Your email address'
+                            placeholder='Your email address*'
                             onBlur=
                             {(e) => this.emailChangeHandler(e)}/>
                         <textarea
                             className={classes.formfield}
                             required
-                            placeholder='Message'
+                            placeholder='Message*'
                             onChange=
                             {(e) => this.textAreaHandler(e)}></textarea>
                         <input
                             type="submit"
-                            placeholder="submit"
+                            value="submit"
                             className={classes.submitButton}
                             name="login"/>
                     </form>
                 </div>
             </div>
-        )
     }
 }
 
